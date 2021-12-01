@@ -1,6 +1,16 @@
 #include <iostream>
+#include <exception>
+#include <string>
 
 using namespace std;
+
+class invalidCharacterException
+{
+};
+
+class invalidRangeException
+{
+};
 
 char character(char, int);
 
@@ -10,4 +20,12 @@ int main()
     return 0;
 }
 
-char character()
+char character(char start, int offset)
+{
+    //Checks if we're starting outside of the alphabet
+    if (!isalpha(start))
+    {
+        throw invalidCharacterException();
+    }
+    if ()
+}
