@@ -27,5 +27,10 @@ char character(char start, int offset)
     {
         throw invalidCharacterException();
     }
-    if ()
+    char endChar = start + offset;
+    if ((isupper(start) && !isupper(endChar)) || (islower(start) && !islower(endChar)))
+    {
+        throw invalidRangeException();
+    }
+    return endChar;
 }
