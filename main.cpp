@@ -4,19 +4,54 @@
 
 using namespace std;
 
-class invalidCharacterException
-{
-};
+class invalidCharacterException{};
 
-class invalidRangeException
-{
-};
+class invalidRangeException{};
 
 char character(char, int);
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    try
+    {
+        cout << character('a', 1) << endl;
+    }
+    catch(...)
+    {
+        cout << "Some exception was thrown for character('a', 1)" << endl;
+    }
+    try
+    {
+        cout << character('a', -1) << endl;
+    }
+    catch(invalidRangeException)
+    {
+        cout << "invalidRangeException for character('a', -1)" << endl;
+    }
+    try
+    {
+        cout << character('Z', -1) << endl;
+    }
+    catch(...)
+    {
+        cout << "Some exception was thrown for character('Z', -1)" << endl;
+    }
+    try
+    {
+        cout << character('?', 5) << endl;
+    }
+    catch(invalidCharacterException)
+    {
+        cout << "invalidCharacterException was thrown for character('?', 5)" << endl;
+    }
+    try
+    {
+        cout << character('A', 32) << endl;
+    }
+    catch(invalidRangeException)
+    {
+        cout << "invalidRangeException was thrown for character('A', 32)" << endl;
+    }
     return 0;
 }
 
